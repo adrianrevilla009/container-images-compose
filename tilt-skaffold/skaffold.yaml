@@ -1,0 +1,18 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: orders
+build:
+  artifacts:
+    - image: orders-multistage
+      context: ../multistage-dockerfile
+      docker:
+        dockerfile: Dockerfile
+manifests:
+  rawYaml:
+    - k8s.yaml
+portForward:
+  - resourceType: deployment
+    resourceName: orders
+    port: 8080
+    localPort: 8080

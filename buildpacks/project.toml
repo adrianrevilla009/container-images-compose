@@ -1,0 +1,7 @@
+[_]
+schema-version = "0.2"
+id = "lab/orders"
+
+[[io.buildpacks.build.env]]
+name = "BP_JVM_VERSION"
+value = "21"

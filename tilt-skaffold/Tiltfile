@@ -1,0 +1,4 @@
+# Inner loop with Tilt: rebuild and redeploy on source change.
+docker_build('orders-multistage', '../multistage-dockerfile')
+k8s_yaml('k8s.yaml')
+k8s_resource('orders', port_forwards='8080:8080')
